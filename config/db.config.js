@@ -1,7 +1,7 @@
 module.exports = {
   HOST: "aws.connect.psdb.cloud",
-  USER: "xqf7o34r0b3r83lb5s04", //root เป็นusername ในการต่อ database
-  PASSWORD: "pscale_pw_o8EVV0y6tuRR5JoTc3VMvoacwyeryHHhkof8qb9Teji", //ถ้าใช้ XAMPP ก็ไม่ต้องมี PASSWORD เช่น PASSWORD: "" //ถ้าใช้ แอปเซิร์ฟ(AppServ) ก็จะมี PASSWORD เช่น PASSWORD: "12345678"
+  USER: "qf46768gkzhwigfddgoa", //root เป็นusername ในการต่อ database
+  PASSWORD: "pscale_pw_k5O2irqxem5N0fkYIPLc3eiR6d7j2o7sOxj7wybwlS6", //ถ้าใช้ XAMPP ก็ไม่ต้องมี PASSWORD เช่น PASSWORD: "" //ถ้าใช้ แอปเซิร์ฟ(AppServ) ก็จะมี PASSWORD เช่น PASSWORD: "12345678"
   DB: "se_database", //เป็นการตั้ง DATABASE ให้มีชื่อว่า restaurants
 };
 
