@@ -14,6 +14,7 @@
 
 ## ลิงค์สำหรับเข้า API หน้าข้อมูล restaurants 
 (แต่จะถูกเข้ารหัส Auth โดยให้ใส่ Username และ Password ก่อนถึงจะสามารถเข้าไปในลิงค์ API ของเราได้ หรือต้องใส่ Username และ Password ก่อนถึงจะสามารถเข้าไปดูข้อมูลในลิงค์ API ของเราได้)
+
 [คลิกที่นี่เพื่อเข้าสู่ API หน้าข้อมูล restaurants](https://tiny-ruby-chimpanzee-boot.cyclic.app/restaurants)
 
 [https://tiny-ruby-chimpanzee-boot.cyclic.app/restaurants](https://tiny-ruby-chimpanzee-boot.cyclic.app/restaurants)
