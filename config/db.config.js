@@ -5,6 +5,13 @@ module.exports = {
   USER: process.env.USER, //root เป็นusername ในการต่อ database
   PASSWORD: process.env.PASSWORD, //ถ้าใช้ XAMPP ก็ไม่ต้องมี PASSWORD เช่น PASSWORD: "" //ถ้าใช้ แอปเซิร์ฟ(AppServ) ก็จะมี PASSWORD เช่น PASSWORD: "12345678"
   DB: process.env.DB, //เป็นการตั้ง DATABASE ให้มีชื่อว่า restaurants
+  dialect:"postgres",
+  pool:{
+    max:5,
+    min:0,
+    acquire:30000,
+    idle:10000
+  }
 };
 
 //config คือเป็นการตั้งค่าต่างๆ

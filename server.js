@@ -3,6 +3,30 @@ const cors = require("cors");//เป็นการเอาในส่วน�
 const sql = require("./models/db");
 const PORT = 5000 //เป็นการประกาศตัวแปร PORT 
 const restaurantRouter = require("./routes/restaurant.router") //เป็นการ import ในส่วนของ router นำมาใช้ //require คือเป็นการimport โดยเก็บไว้ในออฟเจ็คที่ชื่อว่าrestaurantRouter และ ./ คือ คือเป็นการ move เข้าไปอีกหนึ่งสเต็ป ต้องอยู่ในโฟเดอร์ตัวเองก็คือโฟเดอร์ routes ในไฟล์ restaurant.router //restaurantRouterเป็นตัวแปรที่อยู่ภายนอก
+const req = require("express/lib/request");
+const db = require("./models/index");
+const role = db.role;
+//dev mode
+db.sequelize.sync({ force: true }).then(() => {
+  console.log("Drop and resync DB");
+  initial();
+});
+
+function initial() {
+  role.create({
+    id: 1,
+    name: "user",
+  });
+  role.create({
+    id: 2,
+    name: "moderator",
+  });
+  role.create({
+    id: 3,
+    name: "admin",
+  });
+}
+
 //1. Create app
 const app = express()
 
