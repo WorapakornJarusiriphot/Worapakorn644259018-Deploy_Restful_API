@@ -41,7 +41,8 @@ app.get("/", (req, res)=>{ //req หรือ request คือ User ส่ง�
 })
 
 //Use restaurant router
-app.use("",restaurantRouter)  //เป็นการบอกว่าเธอๆ app เธออะ ให้ใช้ไฟล์ router ตรงนี้นะ ก็คือ restaurantRouter
+app.use("/",restaurantRouter)  //เป็นการบอกว่าเธอๆ app เธออะ ให้ใช้ไฟล์ router ตรงนี้นะ ก็คือ restaurantRouter
+require("./routes/auth.router")(app);
 
 //4. Running app
 app.listen(PORT, ()=>{ //เป็นการบอกให้ app มันค่อนฟังเสมอว่ามีใครเรียกใช้งานที่หมายเลข port ต่อไปนี้หรือป่าว
