@@ -32,10 +32,10 @@ const Restaurant = sequelize.define("restaurant", {
   },
 });
 
-Restaurant.sync({force:false}).then(()=>{
-  console.log("Table created or updated")
-}).catch((error) => {
-  console.error("error",error)
-}
-)
+// Restaurant.sync({force:false}).then(()=>{
+//   console.log("Table created or updated")
+// }).catch((error) => {
+//   console.error("error",error)
+// }
+// )
 module.exports = Restaurant;
