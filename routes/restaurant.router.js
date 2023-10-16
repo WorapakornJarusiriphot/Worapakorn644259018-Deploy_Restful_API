@@ -1,10 +1,11 @@
 const express = require("express");
 const router = express.Router();
 const Restaurant = require("../controllers/restaurant.controllers");
+const { authJwt } = require("../middleware");
 
 // Insert new restaurant to DB
 // http://localhost:5000/restaurants
-router.post("/restaurants",async (req,res)=>{
+router.post("/restaurants", [authJwt.verifyToken, authJwt.isAdmin], async (req,res)=>{
     try {
     const newRestaurant = req.body;
     console.log(newRestaurant)
@@ -27,18 +28,22 @@ router.get("/restaurants", async(req, res)=>{
 })
 
 // get Restaurant By ID
-router.get("/restaurants/:id", async(req, res)=>{
+router.get("/restaurants/:id", [authJwt.verifyToken], async(req, res)=>{
     try {
         const restaurantId = req.params.id;
         const restaurant = await Restaurant.getById(restaurantId);
         res.status(200).json(restaurant);
     } catch (error) {
+        if (error.kind === "not_found") {
+          res.status(404).json({ error: "Restaurant not found" });
+        } else {
         res.status(500).json({err:"Fail to create restaurant by Id"});
+      }
     }
 })
 
 // Update a restaurant data 
-router.put("/restaurants/:id", async(req, res)=>{
+router.put("/restaurants/:id", [authJwt.verifyToken, authJwt.isAdmin], async(req, res)=>{
   try {
     const restaurantId = req.params.id;
     const restaurantData = req.body;
@@ -48,7 +53,7 @@ router.put("/restaurants/:id", async(req, res)=>{
         );
         res.status(200).json(restaurant);
   } catch (error) {
-    if (error.kind === "not_founf") {
+    if (error.kind === "not_found") {
         res.status(400).json({ error: "Restaurant not found "});
     }else {
         res.status(500).json({ error: "Failed to update restaurant data"});
@@ -57,7 +62,7 @@ router.put("/restaurants/:id", async(req, res)=>{
 });
 
 //Delete
-router.delete("/restaurants/:id", async(req, res)=>{
+router.delete("/restaurants/:id",[authJwt.verifyToken, authJwt.isAdmin], async(req, res)=>{
     try {
         const restaurantId = req.params.id;
         const restaurant = await Restaurant.removeById(restaurantId);
