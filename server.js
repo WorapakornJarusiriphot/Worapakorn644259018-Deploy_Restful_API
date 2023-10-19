@@ -8,6 +8,7 @@ const restaurantRouter = require("./routes/restaurant.router") //เป็นก
 const req = require("express/lib/request");
 const db = require("./models/index");
 const role = db.role;
+
 //dev mode
 // db.sequelize.sync({ force: true }).then(() => {
 //   console.log("Drop and resync DB");
