@@ -2,6 +2,12 @@
 ชื่อ นายวรปกร จารุศิริพจน์ รหัสนักศึกษา644259018 หมู่เรียน64/45
 งาน React Workshop 3: การ Deploy Restful API
 
+# ลิงค์สำหรับเข้า swagger
+
+[คลิกที่นี่เพื่อเข้าสู่ swagger](https://real-erin-newt-belt.cyclic.cloud/api-docs/)
+
+[https://real-erin-newt-belt.cyclic.cloud/api-docs/](https://real-erin-newt-belt.cyclic.cloud/api-docs/)
+
 # ลิงค์สำหรับเข้า API ของเรา
 
 ## ลิงค์สำหรับเข้า API หน้าแรก
