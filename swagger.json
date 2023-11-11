@@ -32,7 +32,7 @@
               ],
               "responses": {
                   "200": {
-                      "description": "Successfully signed in",
+                      "description": "Successfully signed in - การดำเนินการสำเร็จ",
                       "content": {
                           "application/json": {
                               "schema": {
@@ -70,7 +70,25 @@
                               }
                           }
                       }
-                  }
+                  },
+                "201": {
+                    "description": "Created - ได้สร้างทรัพยากรใหม่"
+                },
+                "400": {
+                    "description": "Bad Request - คำขอไม่ถูกต้อง"
+                },
+                "401": {
+                    "description": "Invalid Password - Unauthorized - ไม่ได้รับอนุญาต"
+                },
+                "403": {
+                    "description": "Forbidden - การเข้าถึงถูกห้าม"
+                },
+                "404": {
+                    "description": "User not found - Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                },
+                "500": {
+                    "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
+                }
               }
           }
       },
@@ -109,7 +127,7 @@
               ],
               "responses": {
                   "200": {
-                      "description": "User was registered successfully",
+                      "description": "User was registered successfully - การดำเนินการสำเร็จ",
                       "content": {
                           "application/json": {
                               "schema": {
@@ -125,10 +143,84 @@
                               }
                           }
                       }
+                  },
+                  "201": {
+                      "description": "Created - ได้สร้างทรัพยากรใหม่"
+                  },
+                  "400": {
+                      "description": "Bad Request - คำขอไม่ถูกต้อง"
+                  },
+                  "401": {
+                      "description": "Unauthorized - ไม่ได้รับอนุญาต"
+                  },
+                  "403": {
+                      "description": "Forbidden - การเข้าถึงถูกห้าม"
+                  },
+                  "404": {
+                      "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                  },
+                  "500": {
+                      "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
                   }
               }
           }
       },
+      "/api/auth/refreshtoken": {
+        "post": {
+            "tags": [
+                "Authentication"
+            ],
+            "summary": "Refresh authentication token",
+            "description": "This endpoint is used for refreshing the authentication token.",
+            "parameters": [
+                {
+                    "name": "refreshToken",
+                    "in": "body",
+                    "description": "Refresh token required for authentication",
+                    "required": true,
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "refreshToken": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                }
+            ],
+            "responses": {
+                "200": {
+                    "description": "New authentication token generated successfully - การดำเนินการสำเร็จ",
+                    "schema": {
+                        "type": "object",
+                        "properties": {
+                            "authToken": {
+                                "type": "string"
+                            }
+                        }
+                    }
+                },
+                "400": {
+                    "description": "Invalid request - คำขอไม่ถูกต้อง"
+                },
+                "401": {
+                    "description": "Unauthorized access - ไม่ได้รับอนุญาต"
+                },
+                "201": {
+                    "description": "Created - ได้สร้างทรัพยากรใหม่"
+                },
+                "403": {
+                    "description": "Refresh Token is not in database! - Forbidden - การเข้าถึงถูกห้าม"
+                },
+                "404": {
+                    "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                },
+                "500": {
+                    "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
+                }
+            }
+        }
+    },
       "/restaurants": {
           "get": {
               "tags": [
@@ -137,7 +229,7 @@
               "description": "Get a list of restaurants",
               "responses": {
                   "200": {
-                      "description": "Successfully retrieved restaurants",
+                      "description": "Successfully retrieved restaurants - การดำเนินการสำเร็จ",
                       "content": {
                           "application/json": {
                               "schema": {
@@ -170,6 +262,24 @@
                               }
                           }
                       }
+                  },
+                  "201": {
+                      "description": "Created - ได้สร้างทรัพยากรใหม่"
+                  },
+                  "400": {
+                      "description": "Bad Request - คำขอไม่ถูกต้อง"
+                  },
+                  "401": {
+                      "description": "Unauthorized - ไม่ได้รับอนุญาต"
+                  },
+                  "403": {
+                      "description": "Forbidden - การเข้าถึงถูกห้าม"
+                  },
+                  "404": {
+                      "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                  },
+                  "500": {
+                      "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
                   }
               }
           },
@@ -201,7 +311,7 @@
             ],
             "responses": {
                 "200": {
-                    "description": "Successfully created restaurant",
+                    "description": "Successfully created restaurant - การดำเนินการสำเร็จ",
                     "content": {
                         "application/json": {
                             "schema": {
@@ -217,6 +327,24 @@
                             }
                         }
                     }
+                },
+                "201": {
+                    "description": "Created - ได้สร้างทรัพยากรใหม่"
+                },
+                "400": {
+                    "description": "Bad Request - คำขอไม่ถูกต้อง"
+                },
+                "401": {
+                    "description": "Unauthorized - ไม่ได้รับอนุญาต"
+                },
+                "403": {
+                    "description": "Forbidden - การเข้าถึงถูกห้าม"
+                },
+                "404": {
+                    "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                },
+                "500": {
+                    "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
                 }
             }
         }
@@ -239,7 +367,7 @@
               ],
               "responses": {
                   "200": {
-                      "description": "Successfully get restaurant by Id",
+                      "description": "Successfully get restaurant by Id - การดำเนินการสำเร็จ",
                       "content": {
                           "application/json": {
                               "schema": {
@@ -269,6 +397,24 @@
                               }
                           }
                       }
+                  },
+                  "201": {
+                      "description": "Created - ได้สร้างทรัพยากรใหม่"
+                  },
+                  "400": {
+                      "description": "Bad Request - คำขอไม่ถูกต้อง"
+                  },
+                  "401": {
+                      "description": "Unauthorized - ไม่ได้รับอนุญาต"
+                  },
+                  "403": {
+                      "description": "Forbidden - การเข้าถึงถูกห้าม"
+                  },
+                  "404": {
+                      "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                  },
+                  "500": {
+                      "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
                   }
               }
           },
@@ -307,7 +453,7 @@
             ],
             "responses": {
               "200": {
-                "description": "Successfully updated restaurant",
+                "description": "Successfully updated restaurant - การดำเนินการสำเร็จ",
                 "content": {
                   "application/json": {
                     "schema": {
@@ -323,6 +469,24 @@
                     }
                   }
                 }
+              },
+              "201": {
+                  "description": "Created - ได้สร้างทรัพยากรใหม่"
+              },
+              "400": {
+                  "description": "Bad Request - คำขอไม่ถูกต้อง"
+              },
+              "401": {
+                  "description": "Unauthorized - ไม่ได้รับอนุญาต"
+              },
+              "403": {
+                  "description": "Forbidden - การเข้าถึงถูกห้าม"
+              },
+              "404": {
+                  "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+              },
+              "500": {
+                  "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
               }
             }
           },
@@ -344,6 +508,25 @@
               "responses": {
                   "204": {
                       "description": "Successfully deleted restaurant"
+                  },
+                  "200": {"description": "Success - สำเร็จ"},
+                  "201": {
+                      "description": "Created - ได้สร้างทรัพยากรใหม่"
+                  },
+                  "400": {
+                      "description": "Bad Request - คำขอไม่ถูกต้อง"
+                  },
+                  "401": {
+                      "description": "Unauthorized - ไม่ได้รับอนุญาต"
+                  },
+                  "403": {
+                      "description": "Forbidden - การเข้าถึงถูกห้าม"
+                  },
+                  "404": {
+                      "description": "Not Found - ไม่พบทรัพยากรที่ร้องขอ"
+                  },
+                  "500": {
+                      "description": "Internal Server Error - มีข้อผิดพลาดภายในเซิร์ฟเวอร์"
                   }
               }
           }
